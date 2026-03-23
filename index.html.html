@@ -635,24 +635,51 @@ footer{background:var(--ink-mid);border-top:1px solid rgba(255,255,255,.06);padd
 
 <hr class="rule"/>
 
-/* ══════════════════════════════════════════
-   PACKAGING — v2 rows + v1 hover indent
-══════════════════════════════════════════ */
-#packaging{background:var(--ivory-dark)}
-.pkg-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
-.pkg-row{display:grid;grid-template-columns:290px 1fr 48px;gap:2.5rem;align-items:center;padding:2.25rem 0;border-bottom:1px solid var(--line);cursor:pointer;transition:padding-left .25s}
-.pkg-row:hover{padding-left:.85rem}
-.pkg-row:hover .pkg-arrow{border-color:var(--umber);color:var(--umber)}
-.pkg-thumb{height:165px;overflow:hidden;background:var(--ivory-deep);border-radius:2px;flex-shrink:0}
-.pkg-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.pkg-row:hover .pkg-thumb img{transform:scale(1.04)}
-.pkg-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--ivory-deep)}
-.pkg-client{font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--umber);margin-bottom:.35rem}
-.pkg-body h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:.55rem}
-.pkg-body p{font-size:.82rem;color:var(--ink-soft);line-height:1.7;max-width:500px}
-.view-cs{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--umber);margin-top:.85rem;transition:gap .2s}
-.pkg-row:hover .view-cs{gap:10px}
-.pkg-arrow{width:44px;height:44px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-muted);flex-shrink:0;font-size:.82rem;transition:all .2s}
+ PACKAGING — v2 rows + v1 hover indent
+<!-- ═══ PACKAGING ════════════════════════════ -->
+<section id="packaging">
+<div class="wrap">
+  <div class="sec-head">
+    <div class="sec-eyebrow r">Packaging Design</div>
+    <h2 class="sec-title r d1">Creating memorable brand experiences<br/>through <em>innovative packaging</em></h2>
+    <p class="sec-sub r d2">Solutions that balance aesthetics, functionality, and sustainability.</p>
+  </div>
+  <div class="pkg-list">
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&h=280&fit=crop" alt="Cheese Pie Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">🥧</div></div>
+      <div class="pkg-body"><div class="pkg-client">Momilo Mio</div><h3>Cheese Pie Product Packaging</h3><p>Elegant bakery packaging with windowed design showcasing artisan cheese pies with refined branding and premium visual identity.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&h=280&fit=crop" alt="Christmas Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">🎄</div></div>
+      <div class="pkg-body"><div class="pkg-client">Momilo Mio</div><h3>Christmas Cheese Pie Packaging</h3><p>Festive holiday-themed packaging featuring a star-shaped window design with elegant gold accents for seasonal gifting.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=280&fit=crop" alt="Health Supplement" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">🫙</div></div>
+      <div class="pkg-body"><div class="pkg-client">TGH Plus</div><h3>Health Supplement Packaging</h3><p>Clean, professional label design for Turmeric Garlic Honey pure extract line emphasising natural wellness and product purity.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=280&fit=crop" alt="Tech Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">📦</div></div>
+      <div class="pkg-body"><div class="pkg-client">InnovateTech</div><h3>Tech Product Packaging</h3><p>Minimal unboxing experience that reflects the product's sleek design philosophy — packaging as a brand statement.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=280&fit=crop" alt="Cosmetics Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">💄</div></div>
+      <div class="pkg-body"><div class="pkg-client">Natural Glow</div><h3>Cosmetics Line Packaging</h3><p>Elegant cosmetics packaging with a nature-forward aesthetic communicating purity, sustainability, and premium quality.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=280&fit=crop" alt="Food Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">🍱</div></div>
+      <div class="pkg-body"><div class="pkg-client">Dagupan Brand</div><h3>Food Product Packaging</h3><p>Appetising food packaging design balancing visual appeal with shelf impact — optimised for local and international retail.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+  </div>
+</div>
+</section>
+
+
 
 
 <!-- ═══ FOOTER ════════════════════════════════ -->
