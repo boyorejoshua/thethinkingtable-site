@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Ronald Rommel N. Viloria — Industrial Designer & Entrepreneur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ── TOKENS ─────────────────────────────── */
+:root{
+  --ivory:#f8f5f0; --ivory-dark:#ede8df; --ivory-deep:#e2dbd0;
+  --ink:#1a1714; --ink-mid:#2e2a26; --ink-soft:#5a534c; --ink-muted:#8c847a;
+  --umber:#8b6840; --umber-light:#b8925e; --umber-pale:#f0e8dc;
+  --line:rgba(26,23,20,.11); --line-soft:rgba(26,23,20,.055); --white:#fff;
+}
+/* ── RESET ──────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--ivory);color:var(--ink);overflow-x:hidden;line-height:1.65;-webkit-font-smoothing:antialiased}
+/* grain */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.45}
+img{max-width:100%;display:block;object-fit:cover}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+/* ── LAYOUT ─────────────────────────────── */
+.wrap{max-width:1280px;margin:auto;padding:0 2.5rem}
+section{padding:100px 0}
+.rule{border:none;border-top:1px solid var(--line);margin:0}
+/* ── REVEAL ─────────────────────────────── */
+.r{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.r.in{opacity:1;transform:none}
+.d1{transition-delay:.09s}.d2{transition-delay:.18s}.d3{transition-delay:.27s}.d4{transition-delay:.36s}
+/* ── CURSOR (v1) ─────────────────────────── */
+.cursor{width:10px;height:10px;border-radius:50%;background:var(--umber);position:fixed;pointer-events:none;z-index:99999;transition:transform .15s;mix-blend-mode:multiply}
+.cursor-ring{width:36px;height:36px;border-radius:50%;border:1px solid var(--umber);position:fixed;pointer-events:none;z-index:99998;opacity:.5;transition:transform .4s cubic-bezier(.25,.46,.45,.94)}
+
+/* ══════════════════════════════════════════
+   NAV
+══════════════════════════════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:800;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;background:rgba(248,245,240,.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--line-soft);transition:border-color .3s}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;letter-spacing:.03em;white-space:nowrap}
+.nav-logo span{color:var(--umber)}
+.nav-links{display:flex;align-items:center;gap:2.25rem}
+.nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:100%;height:1px;background:var(--umber);transition:right .25s ease}
+.nav-links a:hover{color:var(--ink)}.nav-links a:hover::after{right:0}
+.nav-cv{font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:8px 18px;border:1px solid var(--ink);color:var(--ink);transition:all .22s;white-space:nowrap}
+.nav-cv:hover{background:var(--ink);color:var(--ivory)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:all .25s}
+.mob-nav{display:none;position:fixed;top:64px;left:0;right:0;background:var(--ivory);border-bottom:1px solid var(--line);padding:1.25rem 2.5rem 2rem;z-index:799;max-height:85vh;overflow-y:auto}
+.mob-nav.open{display:block}
+.mob-nav a{display:block;padding:13px 0;font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line-soft)}
+.mob-nav a:last-child{border:none}
+
+/* ══════════════════════════════════════════
+   HERO — v1 editorial + v2 photo split
+══════════════════════════════════════════ */
+#hero{padding:0;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+/* v1 ghost watermark text */
+.hero-bg-word{position:absolute;top:50%;left:0;transform:translateY(-50%);font-family:'Cormorant Garamond',serif;font-size:clamp(10rem,18vw,20rem);font-weight:300;line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(26,23,20,.05);pointer-events:none;user-select:none;letter-spacing:-.02em;z-index:0}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:100px 3rem 80px 2.5rem;position:relative;z-index:1;background:var(--ivory)}
+.hero-eyebrow{font-size:.64rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--umber);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--umber)}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,5.5rem);font-weight:300;line-height:1.0;letter-spacing:-.02em;margin-bottom:1.75rem}
+.hero-name em{font-style:italic;color:var(--umber)}
+.hero-name .block{display:block}
+.hero-bio{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2.25rem}
+.hero-bio p{font-size:.88rem;color:var(--ink-soft);line-height:1.82;max-width:500px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-ink{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--ink);color:var(--ivory);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all .22s}
+.btn-ink:hover{background:var(--umber)}
+.btn-bordered{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border:1px solid var(--ink);color:var(--ink);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:transparent;cursor:pointer;transition:all .22s}
+.btn-bordered:hover{background:var(--ink);color:var(--ivory)}
+.hero-stats{display:flex;gap:2.5rem;padding-top:2.25rem;border-top:1px solid var(--line);flex-wrap:wrap}
+.h-stat .num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;line-height:1}
+.h-stat .lbl{font-size:.6rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-top:3px}
+/* v2 photo right pane */
+.hero-right{position:relative;overflow:hidden;background:var(--ivory-deep)}
+.hero-photo{width:100%;height:100%;object-fit:cover;object-position:top center}
+.hero-ph-fb{width:100%;height:100%;background:linear-gradient(160deg,var(--ivory-dark),var(--ivory-deep));display:none;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem}
+.hero-ph-fb .init{font-family:'Cormorant Garamond',serif;font-size:9rem;font-weight:300;color:var(--ivory-deep);line-height:1}
+/* v1 scroll hint */
+.hero-scroll-hint{position:absolute;bottom:2rem;left:2.5rem;display:flex;align-items:center;gap:.85rem;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted);z-index:1}
+.scroll-line{width:40px;height:1px;background:var(--ink-muted);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--umber);animation:scanl 2s ease-in-out infinite}
+@keyframes scanl{0%{left:-100%}50%{left:100%}100%{left:100%}}
+
+/* ══════════════════════════════════════════
+   SECTION HEADS
+══════════════════════════════════════════ */
+.sec-head{margin-bottom:3.5rem}
+.sec-head.center{text-align:center}
+.sec-eyebrow{font-size:.64rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--umber);margin-bottom:.85rem;display:flex;align-items:center;gap:.65rem}
+.sec-eyebrow::before{content:'';width:20px;height:1px;background:var(--umber)}
+.sec-head.center .sec-eyebrow{justify-content:center}
+.sec-head.center .sec-eyebrow::before{display:none}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.8rem);font-weight:300;line-height:1.1;margin-bottom:.85rem}
+.sec-title em{font-style:italic;color:var(--umber)}
+.sec-sub{font-size:.9rem;color:var(--ink-soft);line-height:1.75;max-width:560px}
+.label-sm{font-size:.64rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+
+/* ══════════════════════════════════════════
+   ABOUT — v2 layout + v1 sticky sidebar
+══════════════════════════════════════════ */
+#about{background:var(--ivory)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:5rem;align-items:start}
+.about-copy{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem}
+.about-copy p{font-size:.88rem;color:var(--ink-soft);line-height:1.82}
+/* v1 quote styling */
+.about-quote{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-style:italic;font-weight:300;line-height:1.45;color:var(--ink-mid);padding:1.75rem 2rem;border-left:2px solid var(--umber);background:var(--umber-pale);margin:1.5rem 0}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:1.35rem;margin-top:2rem;padding-top:2rem;border-top:1px solid var(--line)}
+.cred .c-lbl{font-size:.58rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.35rem}
+.cred .c-val{font-size:.85rem;color:var(--ink-mid);line-height:1.55}
+/* v1 sidebar sticky */
+.about-sidebar{position:sticky;top:82px;display:flex;flex-direction:column;gap:1.5rem}
+.about-visual{border-radius:2px;overflow:hidden;aspect-ratio:4/5;background:var(--ivory-deep)}
+.about-visual img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.about-card{background:var(--ink);padding:2rem;color:var(--ivory)}
+.about-card .ac-label{font-size:.58rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;color:var(--umber-light);margin-bottom:.65rem}
+.about-card p{font-size:.78rem;color:rgba(248,245,240,.58);line-height:1.7}
+.about-card .ac-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--ivory);margin-top:.65rem}
+
+/* ══════════════════════════════════════════
+   EXPERTISE — v1 numbered editorial list
+══════════════════════════════════════════ */
+#expertise{background:var(--ivory-dark)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:2rem}
+.exp-header h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4.5rem);font-weight:300;line-height:1.1}
+.exp-header h2 em{font-style:italic;color:var(--umber)}
+.exp-intro{max-width:340px;font-size:.86rem;color:var(--ink-soft);line-height:1.75}
+.exp-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.exp-item{display:grid;grid-template-columns:56px 1.2fr 1fr auto;align-items:center;gap:2rem;padding:1.85rem 0;border-bottom:1px solid var(--line);transition:padding-left .25s;cursor:default}
+.exp-item:hover{padding-left:.85rem}
+.exp-item:hover .exp-num{color:var(--umber)}
+.exp-num{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;color:var(--ink-muted);transition:color .25s}
+.exp-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--ink)}
+.exp-desc{font-size:.8rem;color:var(--ink-soft);line-height:1.65}
+.exp-tags{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-end}
+.exp-tag{font-size:.58rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border:1px solid var(--line);color:var(--ink-muted)}
+
+/* ══════════════════════════════════════════
+   PORTFOLIO — v2 3-col grid + v1 hover
+══════════════════════════════════════════ */
+#portfolio{background:var(--ivory)}
+.port-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.port-card{background:var(--white);overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s}
+.port-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(26,23,20,.12)}
+.port-img{height:240px;overflow:hidden;background:var(--ivory-deep);position:relative}
+.port-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.port-card:hover .port-img img{transform:scale(1.04)}
+.port-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem;background:var(--ivory-deep)}
+.port-info{padding:1.25rem 1.5rem 1.5rem}
+.port-cat{font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--umber);margin-bottom:.35rem}
+.port-info h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--ink);margin-bottom:.35rem}
+.port-info p{font-size:.78rem;color:var(--ink-soft);line-height:1.6}
+
+/* ══════════════════════════════════════════
+   PACKAGING — v2 rows + v1 hover indent
+══════════════════════════════════════════ */
+#packaging{background:var(--ivory-dark)}
+.pkg-list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.pkg-row{display:grid;grid-template-columns:290px 1fr 48px;gap:2.5rem;align-items:center;padding:2.25rem 0;border-bottom:1px solid var(--line);cursor:pointer;transition:padding-left .25s}
+.pkg-row:hover{padding-left:.85rem}
+.pkg-row:hover .pkg-arrow{border-color:var(--umber);color:var(--umber)}
+.pkg-thumb{height:165px;overflow:hidden;background:var(--ivory-deep);border-radius:2px;flex-shrink:0}
+.pkg-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pkg-row:hover .pkg-thumb img{transform:scale(1.04)}
+.pkg-thumb-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--ivory-deep)}
+.pkg-client{font-size:.58rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--umber);margin-bottom:.35rem}
+.pkg-body h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:.55rem}
+.pkg-body p{font-size:.82rem;color:var(--ink-soft);line-height:1.7;max-width:500px}
+.view-cs{display:inline-flex;align-items:center;gap:6px;font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--umber);margin-top:.85rem;transition:gap .2s}
+.pkg-row:hover .view-cs{gap:10px}
+.pkg-arrow{width:44px;height:44px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-muted);flex-shrink:0;font-size:.82rem;transition:all .2s}
+
+/* ══════════════════════════════════════════
+   PHILOSOPHY — v1 dark full-bleed
+══════════════════════════════════════════ */
+#philosophy{background:var(--ink);padding:110px 0;position:relative;overflow:hidden}
+#philosophy::before{content:'"';position:absolute;top:-2rem;left:2rem;font-family:'Cormorant Garamond',serif;font-size:20rem;font-weight:300;color:var(--umber);opacity:.08;line-height:1;pointer-events:none}
+.phil-inner{display:grid;grid-template-columns:auto 1fr;gap:4rem;align-items:center;max-width:1100px;margin:auto;padding:0 2.5rem;position:relative}
+.phil-bar{width:2px;height:140px;background:linear-gradient(var(--umber),var(--umber-light));flex-shrink:0}
+.phil-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.65rem,3.5vw,2.9rem);font-weight:300;font-style:italic;line-height:1.45;color:var(--ivory);margin-bottom:1.25rem}
+.phil-by{font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--umber-light);display:flex;align-items:center;gap:.85rem}
+.phil-by::before{content:'';width:24px;height:1px;background:var(--umber-light)}
+
+/* ══════════════════════════════════════════
+   RENDERING — v2 mosaic grid + v1 hover label
+══════════════════════════════════════════ */
+#rendering{background:var(--ivory-dark)}
+.render-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.render-item{overflow:hidden;position:relative;cursor:pointer;background:var(--ivory-deep)}
+.render-item.tall{grid-row:span 2}
+.render-img{width:100%;aspect-ratio:4/3;overflow:hidden}
+.render-item.tall .render-img{aspect-ratio:unset;height:100%;min-height:400px}
+.render-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
+.render-item:hover img{transform:scale(1.05)}
+.render-label{position:absolute;bottom:0;left:0;right:0;padding:1rem 1.25rem;background:linear-gradient(transparent,rgba(26,23,20,.72));color:#fff;opacity:0;transition:opacity .3s}
+.render-item:hover .render-label{opacity:1}
+.render-label h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400}
+.render-label span{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;opacity:.72}
+
+/* ══════════════════════════════════════════
+   INTERVIEWS — v2 OBRA feature + media cards
+══════════════════════════════════════════ */
+#interviews{background:var(--ivory)}
+.obra-feature{background:var(--white);border:1px solid var(--line);padding:2rem;margin-bottom:3rem}
+.obra-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.obra-header h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:400}
+.obra-tag{font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;background:var(--ink);color:var(--ivory)}
+.obra-imgs{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.obra-img{aspect-ratio:4/3;overflow:hidden;background:var(--ivory-dark)}
+.obra-img img{width:100%;height:100%;object-fit:cover}
+.media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.media-card{background:var(--white);overflow:hidden;cursor:pointer;transition:transform .28s,box-shadow .28s;border:1px solid var(--line)}
+.media-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(26,23,20,.1)}
+.media-img{height:190px;overflow:hidden;background:var(--ivory-dark)}
+.media-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.media-card:hover .media-img img{transform:scale(1.04)}
+.media-body{padding:1.4rem}
+.media-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem;flex-wrap:wrap;gap:.4rem}
+.media-source{font-size:.58rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--umber)}
+.media-date{font-size:.64rem;color:var(--ink-muted)}
+.media-type{font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.5rem}
+.media-body h4{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;margin-bottom:.35rem;color:var(--ink)}
+.media-body p{font-size:.78rem;color:var(--ink-soft);line-height:1.65}
+
+/* ══════════════════════════════════════════
+   SUSTAINABILITY — v1 animated circles + v2 text
+══════════════════════════════════════════ */
+#sustainability{background:var(--ivory-dark);border-top:1px solid var(--line)}
+.sustain-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.sustain-visual{aspect-ratio:1;background:var(--ivory);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;border:1px solid var(--line-soft);position:relative;overflow:hidden}
+/* v1 breathing circles */
+.sustain-visual::before{content:'';position:absolute;width:200%;height:200%;border-radius:50%;border:1px solid var(--line);top:50%;left:50%;transform:translate(-50%,-50%);animation:breathe 6s ease-in-out infinite}
+.sustain-visual::after{content:'';position:absolute;width:140%;height:140%;border-radius:50%;border:1px solid rgba(139,104,64,.18);top:50%;left:50%;transform:translate(-50%,-50%);animation:breathe 6s ease-in-out infinite .8s}
+@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.5}50%{transform:translate(-50%,-50%) scale(.95);opacity:1}}
+.sustain-icon{font-size:3.5rem;position:relative;z-index:1}
+.sustain-tagline{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--ink-soft);text-align:center;position:relative;z-index:1;max-width:200px;line-height:1.5}
+.sustain-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,3.4rem);font-weight:300;margin-bottom:1.25rem}
+.sustain-text h2 em{font-style:italic;color:var(--umber)}
+.sustain-text p{font-size:.88rem;color:var(--ink-soft);line-height:1.82;margin-bottom:1.1rem}
+.sustain-pts{margin-top:1.75rem;display:flex;flex-direction:column;gap:.9rem}
+.sustain-pt{display:flex;gap:.9rem;align-items:flex-start}
+.sustain-dot{width:7px;height:7px;border-radius:50%;background:var(--umber);flex-shrink:0;margin-top:6px}
+.sustain-pt p{font-size:.85rem;color:var(--ink-soft);line-height:1.65}
+
+/* ══════════════════════════════════════════
+   PROCESS — v1 step cards with bar animation
+══════════════════════════════════════════ */
+#process{background:var(--ivory)}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.proc-card{padding:2.5rem 2rem;background:var(--white);border:1px solid var(--ivory-deep);position:relative;overflow:hidden;transition:background .3s}
+.proc-card:hover{background:var(--umber-pale)}
+/* v1 top bar sweep */
+.proc-card::before{content:'';position:absolute;top:0;left:0;right:100%;height:2px;background:var(--umber);transition:right .35s ease}
+.proc-card:hover::before{right:0}
+.proc-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:var(--ivory-deep);line-height:1;margin-bottom:1.25rem;transition:color .3s}
+.proc-card:hover .proc-num{color:var(--umber-pale)}
+.proc-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;margin-bottom:.65rem}
+.proc-card p{font-size:.8rem;color:var(--ink-soft);line-height:1.7}
+
+/* ══════════════════════════════════════════
+   RECOGNITION — v1 cards + international reach
+══════════════════════════════════════════ */
+#recognition{background:var(--ivory-dark)}
+.rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.rec-card{padding:2.25rem 2rem;background:var(--ivory);border:1px solid var(--ivory-deep);transition:background .25s}
+.rec-card:hover{background:var(--umber-pale)}
+.rec-icon{font-size:1.4rem;margin-bottom:1rem;opacity:.7}
+.rec-card h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;margin-bottom:.55rem}
+.rec-card p{font-size:.8rem;color:var(--ink-soft);line-height:1.7}
+.reach-wrap{margin-top:3.5rem;padding-top:2.5rem;border-top:1px solid var(--line)}
+.reach-label{margin-bottom:1.5rem}
+.reach-label p{font-size:.82rem;color:var(--ink-soft);margin-top:.4rem}
+.reach-tags{display:flex;flex-wrap:wrap;gap:.75rem}
+.reach-tag{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:7px 15px;border:1px solid var(--line);color:var(--ink-soft);transition:all .2s;cursor:default}
+.reach-tag:hover{border-color:var(--umber);color:var(--umber);background:var(--umber-pale)}
+
+/* ══════════════════════════════════════════
+   CLIENTS BRANDS
+══════════════════════════════════════════ */
+#clients{background:var(--ivory);padding:68px 0}
+.brands-label{text-align:center;margin-bottom:2rem}
+.brands-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.85rem}
+.brand-pill{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--line);color:var(--ink-soft);transition:all .2s;cursor:default}
+.brand-pill:hover{border-color:var(--umber);color:var(--umber);background:var(--umber-pale)}
+
+/* ══════════════════════════════════════════
+   TESTIMONIALS — v2 dark + v1 typography
+══════════════════════════════════════════ */
+#testimonials{background:var(--ink);padding:100px 0}
+.testi-head .sec-title{color:var(--ivory)}
+.testi-head .sec-title em{color:var(--umber-light)}
+.testi-head .sec-eyebrow{color:var(--umber-light)}
+.testi-head .sec-eyebrow::before{background:var(--umber-light)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3.5rem}
+.testi-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:2.25rem;transition:background .25s}
+.testi-card:hover{background:rgba(255,255,255,.08)}
+.testi-stars{display:flex;gap:3px;margin-bottom:.9rem}
+.testi-stars i{font-size:.68rem;color:var(--umber-light)}
+.testi-qmark{font-size:2.5rem;font-family:'Cormorant Garamond',serif;line-height:1;color:var(--umber-light);opacity:.38;margin-bottom:.8rem}
+.testi-card p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;font-weight:300;color:rgba(248,245,240,.8);line-height:1.72;margin-bottom:1.65rem}
+.testi-author{display:flex;align-items:center;gap:.85rem}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:var(--umber);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--ivory);flex-shrink:0}
+.testi-name{font-size:.84rem;font-weight:500;color:var(--ivory)}
+.testi-role{font-size:.68rem;color:rgba(248,245,240,.4);margin-top:1px}
+
+/* ══════════════════════════════════════════
+   CONTACT — v2 split layout
+══════════════════════════════════════════ */
+#contact{background:var(--white);padding:100px 0}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:start}
+.ci-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;line-height:1.1;margin-bottom:.7rem}
+.ci-title em{font-style:italic;color:var(--umber)}
+.ci-sub{font-size:.87rem;color:var(--ink-soft);line-height:1.75;margin-bottom:2.25rem;max-width:380px}
+.contact-details{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.25rem}
+.cd{display:flex;gap:.85rem;align-items:flex-start}
+.cd-icon{width:36px;height:36px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--umber);font-size:.8rem;flex-shrink:0;margin-top:2px}
+.cd-lbl{font-size:.56rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:2px}
+.cd-val{font-size:.85rem;color:var(--ink-mid);line-height:1.45}
+.cd-val a{color:var(--umber);transition:opacity .2s}
+.cd-val a:hover{opacity:.7}
+.social-row{display:flex;gap:.6rem;flex-wrap:wrap}
+.soc-btn{width:38px;height:38px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-muted);font-size:.8rem;transition:all .2s}
+.soc-btn:hover{border-color:var(--umber);color:var(--umber);background:var(--umber-pale)}
+/* v1 form styling (underline-only inputs) */
+.contact-form-box{background:var(--ivory);padding:2.5rem;border:1px solid var(--line)}
+.contact-form-box h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:300;margin-bottom:1.75rem}
+.ff{margin-bottom:1.35rem}
+.ff label{display:block;font-size:.56rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.45rem}
+.ff input,.ff select,.ff textarea{width:100%;background:var(--white);border:1px solid var(--line);padding:10px 13px;font-family:'Outfit',sans-serif;font-size:.86rem;color:var(--ink);outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
+.ff input::placeholder,.ff textarea::placeholder{color:var(--ink-muted)}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:var(--umber)}
+.ff textarea{resize:none;height:105px}
+.ff-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 30px;background:var(--ink);color:var(--ivory);font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;transition:all .22s;margin-top:.25rem}
+.form-btn:hover{background:var(--umber)}
+.form-success{display:none;margin-top:1rem;font-size:.8rem;color:var(--umber);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem}
+
+/* ══════════════════════════════════════════
+   FOOTER — v2 complete 4-col
+══════════════════════════════════════════ */
+footer{background:var(--ink-mid);border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 2.5rem 2.5rem}
+.footer-inner{max-width:1280px;margin:auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.07)}
+.fb-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--ivory);margin-bottom:.2rem}
+.fb-role{font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--umber-light);margin-bottom:1rem}
+.footer-brand p{font-size:.78rem;color:rgba(248,245,240,.4);line-height:1.7;max-width:250px;margin-bottom:1.2rem}
+.fb-social{display:flex;gap:.6rem}
+.fb-social a{width:34px;height:34px;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(248,245,240,.36);font-size:.76rem;transition:all .2s}
+.fb-social a:hover{border-color:var(--umber-light);color:var(--umber-light)}
+.footer-col h5{font-size:.56rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,245,240,.26);margin-bottom:1.1rem}
+.footer-col ul{display:flex;flex-direction:column;gap:.65rem}
+.footer-col ul li a{font-size:.78rem;color:rgba(248,245,240,.46);transition:color .2s}
+.footer-col ul li a:hover{color:var(--umber-light)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:.64rem;color:rgba(248,245,240,.24);letter-spacing:.05em}
+.footer-built{font-size:.62rem;color:rgba(248,245,240,.2);display:flex;align-items:center;gap:.45rem}
+.footer-built span{color:var(--umber-light);opacity:.65}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:1100px){
+  #hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-bg-word{display:none}
+  .hero-left{padding:96px 2rem 56px}
+  .exp-item{grid-template-columns:50px 1fr 1fr}
+  .exp-item .exp-tags{display:none}
+  .pkg-row{grid-template-columns:240px 1fr;gap:1.5rem}
+  .pkg-arrow{display:none}
+  .sustain-grid{grid-template-columns:1fr;gap:3rem}
+  .sustain-visual{aspect-ratio:16/7}
+  .proc-grid{grid-template-columns:repeat(2,1fr)}
+  .rec-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .obra-imgs{grid-template-columns:repeat(2,1fr)}
+  .phil-inner{grid-template-columns:1fr;gap:2rem}
+  .phil-bar{display:none}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cv{display:none}
+  .hamburger{display:flex}
+  nav{padding:0 1.5rem}
+  .wrap{padding:0 1.5rem}
+  section{padding:64px 0}
+  .hero-left{padding:88px 1.5rem 52px}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-sidebar{position:static}
+  .about-visual{aspect-ratio:16/7}
+  .port-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .pkg-row{grid-template-columns:1fr;gap:1rem}
+  .pkg-thumb{height:190px}
+  .render-grid{grid-template-columns:repeat(2,1fr)}
+  .render-item.tall{grid-row:span 1}
+  .media-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .proc-grid{grid-template-columns:1fr}
+  .rec-grid{grid-template-columns:1fr}
+  .creds{grid-template-columns:1fr}
+  .hero-stats{gap:1.75rem}
+  .obra-imgs{grid-template-columns:repeat(2,1fr)}
+  .exp-item{grid-template-columns:44px 1fr;gap:1rem}
+  .exp-item .exp-desc{display:none}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:.65rem}
+  .ff-row{grid-template-columns:1fr}
+  #philosophy{padding:72px 0}
+  .phil-inner{padding:0 1.5rem}
+}
+@media(max-width:480px){
+  section{padding:52px 0}
+  .wrap{padding:0 1.25rem}
+  .hero-left{padding:80px 1.25rem 44px}
+  .port-grid{grid-template-columns:1fr}
+  .render-grid{grid-template-columns:1fr}
+  .obra-imgs{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .hero-stats{gap:1.5rem}
+  #clients{padding:52px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- custom cursor -->
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="curR"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">Ronald Rommel <span>N. Viloria</span></a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#packaging">Packaging</a>
+    <a href="#rendering">Rendering</a>
+    <a href="#interviews">Interviews</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:1rem">
+    <a href="#" class="nav-cv" onclick="alert('CV available on request.');return false">Download CV</a>
+    <button class="hamburger" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a href="#hero"          onclick="cm()">Home</a>
+  <a href="#about"         onclick="cm()">About</a>
+  <a href="#expertise"     onclick="cm()">Expertise</a>
+  <a href="#portfolio"     onclick="cm()">Portfolio</a>
+  <a href="#packaging"     onclick="cm()">Packaging</a>
+  <a href="#rendering"     onclick="cm()">Rendering</a>
+  <a href="#interviews"    onclick="cm()">Interviews</a>
+  <a href="#testimonials"  onclick="cm()">Testimonials</a>
+  <a href="#contact"       onclick="cm()">Contact</a>
+</div>
+
+<!-- ═══ HERO ═══════════════════════════════ -->
+<section id="hero" style="padding:0">
+  <div class="hero-bg-word">DESIGN</div>
+  <div class="hero-left">
+    <div class="hero-eyebrow r">Industrial Designer &amp; Entrepreneur</div>
+    <h1 class="hero-name r d1">
+      <span class="block">Ronald</span>
+      <span class="block">Rommel <em>N.</em></span>
+      <span class="block">Viloria</span>
+    </h1>
+    <div class="hero-bio r d2">
+      <p>Ronald Rommel N. Viloria is an entrepreneur, accomplished industrial designer, and the visionary leader behind Viloria Product Design Enterprise. For decades, he has honed his expertise in crafting captivating, market-defining brands for global giants such as <strong>Target Corporation, Pottery Barn, Crate &amp; Barrel,</strong> and <strong>West Elm.</strong></p>
+      <p>Driven by a philosophy of <em>"designing with intention and purpose; innovating through empathy and collaboration,"</em> Mr. Viloria is a dedicated advocate for Filipino craftsmanship and inclusivity.</p>
+    </div>
+    <div class="hero-btns r d3">
+      <a href="#portfolio" class="btn-ink">View Portfolio</a>
+      <a href="#contact"   class="btn-bordered">Get in Touch</a>
+    </div>
+    <div class="hero-stats r d4">
+      <div class="h-stat"><div class="num">30+</div><div class="lbl">Years Experience</div></div>
+      <div class="h-stat"><div class="num">4</div><div class="lbl">Global Retailers</div></div>
+      <div class="h-stat"><div class="num">10+</div><div class="lbl">Countries</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&h=1100&fit=crop&crop=face" alt="Ronald Rommel N. Viloria" onerror="this.style.display='none';document.getElementById('hpf').style.display='flex'"/>
+    <div class="hero-ph-fb" id="hpf"><div class="init">RV</div></div>
+  </div>
+  <div class="hero-scroll-hint r">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ═══ ABOUT ══════════════════════════════ -->
+<section id="about">
+<div class="wrap">
+  <div class="about-grid">
+    <div>
+      <div class="sec-head">
+        <div class="sec-eyebrow r">About</div>
+        <h2 class="sec-title r d1">The Designer<br/>Behind the <em>Vision</em></h2>
+      </div>
+      <blockquote class="about-quote r">"I am a consumer-oriented Industrial Designer — every design should satisfy the needs of the consumer."</blockquote>
+      <div class="about-copy">
+        <p class="r">As <strong>Head of Design at Viloria Product Design Enterprise (VPDE Studio)</strong> and <strong>Design Director at CASA Viloria</strong>, he leads extensive product development in furniture, home furnishing, home storage, lighting, graphic design, seasonal craft, visual merchandising, and packaging and exhibition design for both local and international markets.</p>
+        <p class="r d1">Known affectionately as the <em>"Big Brother Entrepreneur,"</em> Mr. Viloria is a respected thought leader, sought-after speaker, and the founder of <strong>Casa Viloria Hub</strong> and <strong>Casa Viloria Design and Build.</strong> He serves as a certified mentor for <strong>Go Negosyo</strong> and <strong>KALYE NEGOSYO,</strong> and is an active member of the <strong>Philippine Chamber of Commerce and Industry (Antipolo).</strong></p>
+        <p class="r d2">He was also the former lead design consultant for the <strong>Design Center of the Philippines,</strong> where he played a pivotal role in mentoring artisans through the OTOP program. Today, he continues to champion local industry as a brand and innovation consultant for various DTI regions and private enterprises.</p>
+        <p class="r d3">He has attended and participated in international shows in <strong>France, Italy, Germany, United States, China, Hong Kong, Singapore, Thailand, Indonesia,</strong> and <strong>Vietnam.</strong></p>
+      </div>
+      <div class="creds r">
+        <div class="cred"><div class="c-lbl">Education</div><div class="c-val">BFA Industrial Design<br/>University of Santo Tomas, Manila</div></div>
+        <div class="cred"><div class="c-lbl">Studio</div><div class="c-val">VPDE Studio<br/>CASA Viloria Design &amp; Build</div></div>
+        <div class="cred"><div class="c-lbl">Published</div><div class="c-val"><em>The Material Matters Book</em><br/>Design Center PH × DTI</div></div>
+        <div class="cred"><div class="c-lbl">Affiliations</div><div class="c-val">Design Center Philippines<br/>Chamber of Furniture · DTI OTOP</div></div>
+      </div>
+    </div>
+    <div class="about-sidebar">
+      <div class="about-visual r">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=650&fit=crop&crop=face" alt="Ronald Rommel Viloria" onerror="this.parentElement.innerHTML='<div style=\'background:var(--ivory-deep);width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem\'>🎨</div>'"/>
+      </div>
+      <div class="about-card r d1">
+        <div class="ac-label">Current Roles</div>
+        <p>Head of Design, VPDE Studio<br/>Design Director, CASA Viloria<br/>Brand &amp; Innovation Consultant, DTI</p>
+        <div class="ac-name">Ronald Rommel N. Viloria</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ═══ EXPERTISE (v1) ═══════════════════════ -->
+<section id="expertise">
+<div class="wrap">
+  <div class="exp-header">
+    <h2 class="r">Areas of<br/><em>Expertise</em></h2>
+    <p class="exp-intro r d1">A multidisciplinary practice spanning product, space, and communication design — always anchored in material intelligence and consumer insight.</p>
+  </div>
+  <div class="exp-list">
+    <div class="exp-item r">
+      <div class="exp-num">01</div>
+      <div class="exp-name">Furniture &amp; Home Furnishing</div>
+      <div class="exp-desc">Designing functional, aesthetically refined furniture and home furnishing products for both mass retail and specialty channels globally.</div>
+      <div class="exp-tags"><span class="exp-tag">Product</span><span class="exp-tag">Retail</span><span class="exp-tag">Global</span></div>
+    </div>
+    <div class="exp-item r">
+      <div class="exp-num">02</div>
+      <div class="exp-name">Lighting Design</div>
+      <div class="exp-desc">Conceptualising lighting products that combine material innovation with functional elegance for home and commercial applications.</div>
+      <div class="exp-tags"><span class="exp-tag">Concept</span><span class="exp-tag">Material</span></div>
+    </div>
+    <div class="exp-item r">
+      <div class="exp-num">03</div>
+      <div class="exp-name">Packaging &amp; Brand Identity</div>
+      <div class="exp-desc">Creating sustainable, purposeful packaging solutions that tell a brand story while minimising environmental impact.</div>
+      <div class="exp-tags"><span class="exp-tag">Sustainable</span><span class="exp-tag">Brand</span></div>
+    </div>
+    <div class="exp-item r">
+      <div class="exp-num">04</div>
+      <div class="exp-name">Exhibition &amp; Visual Merchandising</div>
+      <div class="exp-desc">Designing immersive trade show booths and retail merchandising systems that communicate brand value and drive consumer engagement.</div>
+      <div class="exp-tags"><span class="exp-tag">Spatial</span><span class="exp-tag">Retail</span></div>
+    </div>
+    <div class="exp-item r">
+      <div class="exp-num">05</div>
+      <div class="exp-name">Seasonal &amp; Craft Design</div>
+      <div class="exp-desc">Developing seasonal product collections and community-craft-inspired goods that balance cultural authenticity with market viability.</div>
+      <div class="exp-tags"><span class="exp-tag">Craft</span><span class="exp-tag">Community</span></div>
+    </div>
+    <div class="exp-item r">
+      <div class="exp-num">06</div>
+      <div class="exp-name">Design Consultancy &amp; Direction</div>
+      <div class="exp-desc">Providing strategic design direction and product development consultancy to manufacturers, exporters, and government bodies across the Philippines and Asia.</div>
+      <div class="exp-tags"><span class="exp-tag">Strategy</span><span class="exp-tag">Direction</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ═══ PORTFOLIO ═══════════════════════════ -->
+<section id="portfolio">
+<div class="wrap">
+  <div class="sec-head center">
+    <div class="sec-eyebrow r">Product Design Portfolio</div>
+    <h2 class="sec-title r d1">A collection of innovative product designs<br/>solving <em>real-world problems</em></h2>
+    <p class="sec-sub r d2" style="margin:auto">Through thoughtful design and engineering excellence.</p>
+  </div>
+  <div class="port-grid">
+    <div class="port-card r">
+      <div class="port-img">
+        <img src="https://static.wixstatic.com/media/addaaa_2f3a0aeb0b284f8e91e3e884a57810a5.jpg/v1/fill/w_600,h_600,al_c,q_80,enc_avif,quality_auto/addaaa_2f3a0aeb0b284f8e91e3e884a57810a5.jpg" alt="Woven Bag from Bukidnon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="port-img-ph" style="display:none">👜</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Product Design</div><h3>Woven Bag from Bukidnon</h3><p>Sustainable handwoven bag featuring indigenous craftsmanship with modern leather accents and vibrant yellow straps</p></div>
+    </div>
+    <div class="port-card r d1">
+      <div class="port-img">
+        <img src="https://static.wixstatic.com/media/addaaa_2539ee187f9e4e43bf176b8f91833ad1.jpg/v1/fill/w_600,h_600,al_c,q_80,enc_avif,quality_auto/addaaa_2539ee187f9e4e43bf176b8f91833ad1.jpg" alt="Bamboo Cross Plaque" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="port-img-ph" style="display:none">✝️</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Product Design</div><h3>Natural Bamboo Cross on Acacia Wood Decor Plaque</h3><p>Unique decorative cross from Bacolod featuring natural bamboo on rich acacia wood with "God Bless Our Home" inscription</p></div>
+    </div>
+    <div class="port-card r d2">
+      <div class="port-img">
+        <img src="https://static.wixstatic.com/media/addaaa_35ad75ce870b4f0a93170e4783a4f56d.jpg/v1/fill/w_600,h_600,al_c,q_80,enc_avif,quality_auto/addaaa_35ad75ce870b4f0a93170e4783a4f56d.jpg" alt="Doodle Stool Collection" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="port-img-ph" style="display:none">🪑</div>
+      </div>
+      <div class="port-info"><div class="port-cat">Furniture Design</div><h3>Doodle Stool Collection</h3><p>Contemporary stools in doodle-inspired metal legs with reused wooden material top</p></div>
+    </div>
+    <div class="port-card r">
+      <div class="port-img"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop" alt="Home Furnishing" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="port-img-ph" style="display:none">🛋️</div></div>
+      <div class="port-info"><div class="port-cat">Furniture Design</div><h3>Home Furnishing Collection</h3><p>Curated home furnishing pieces designed for the international retail market with mixed media and material manipulation</p></div>
+    </div>
+    <div class="port-card r d1">
+      <div class="port-img"><img src="https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=600&h=400&fit=crop" alt="Lighting Collection" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="port-img-ph" style="display:none">💡</div></div>
+      <div class="port-info"><div class="port-cat">Lighting Design</div><h3>Natural Material Lighting Collection</h3><p>Lighting products combining material innovation with functional elegance for home and commercial applications</p></div>
+    </div>
+    <div class="port-card r d2">
+      <div class="port-img"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop" alt="Craft Collection" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="port-img-ph" style="display:none">🧺</div></div>
+      <div class="port-info"><div class="port-cat">Seasonal &amp; Craft Design</div><h3>Payatas Community Craft Collection</h3><p>Seasonal product collections developed with the Payatas community — balancing cultural authenticity with market viability</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ═══ PACKAGING ════════════════════════════ -->
+<section id="packaging">
+<div class="wrap">
+  <div class="sec-head">
+    <div class="sec-eyebrow r">Packaging Design</div>
+    <h2 class="sec-title r d1">Creating memorable brand experiences<br/>through <em>innovative packaging</em></h2>
+    <p class="sec-sub r d2">Solutions that balance aesthetics, functionality, and sustainability.</p>
+  </div>
+  <div class="pkg-list">
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&h=280&fit=crop" alt="Cheese Pie Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">🥧</div></div>
+      <div class="pkg-body"><div class="pkg-client">Momilo Mio</div><h3>Cheese Pie Product Packaging</h3><p>Elegant bakery packaging with windowed design showcasing artisan cheese pies with refined branding and premium visual identity.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&h=280&fit=crop" alt="Christmas Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">🎄</div></div>
+      <div class="pkg-body"><div class="pkg-client">Momilo Mio</div><h3>Christmas Cheese Pie Packaging</h3><p>Festive holiday-themed packaging featuring a star-shaped window design with elegant gold accents for seasonal gifting.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=280&fit=crop" alt="Health Supplement" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">🫙</div></div>
+      <div class="pkg-body"><div class="pkg-client">TGH Plus</div><h3>Health Supplement Packaging</h3><p>Clean, professional label design for Turmeric Garlic Honey pure extract line emphasising natural wellness and product purity.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=280&fit=crop" alt="Tech Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">📦</div></div>
+      <div class="pkg-body"><div class="pkg-client">InnovateTech</div><h3>Tech Product Packaging</h3><p>Minimal unboxing experience that reflects the product's sleek design philosophy — packaging as a brand statement.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&h=280&fit=crop" alt="Cosmetics Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">💄</div></div>
+      <div class="pkg-body"><div class="pkg-client">Natural Glow</div><h3>Cosmetics Line Packaging</h3><p>Elegant cosmetics packaging with a nature-forward aesthetic communicating purity, sustainability, and premium quality.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+    <div class="pkg-row r">
+      <div class="pkg-thumb"><img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&h=280&fit=crop" alt="Food Packaging" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="pkg-thumb-ph" style="display:none">🍱</div></div>
+      <div class="pkg-body"><div class="pkg-client">Dagupan Brand</div><h3>Food Product Packaging</h3><p>Appetising food packaging design balancing visual appeal with shelf impact — optimised for local and international retail.</p><span class="view-cs">View Case Study <i class="fas fa-arrow-right"></i></span></div>
+      <div class="pkg-arrow"><i class="fas fa-arrow-right"></i></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ PHILOSOPHY (v1 dark full-bleed) ══════ -->
+<section id="philosophy">
+<div class="phil-inner">
+  <div class="phil-bar r"></div>
+  <div class="r d1">
+    <p class="phil-quote">"Designing with intention and purpose; innovating through empathy and collaboration."</p>
+    <div class="phil-by">Ronald Rommel N. Viloria — Design Philosophy</div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ RENDERING ════════════════════════════ -->
+<section id="rendering" style="background:var(--ivory-dark)">
+<div class="wrap">
+  <div class="sec-head center">
+    <div class="sec-eyebrow r">Product Rendering</div>
+    <h2 class="sec-title r d1">Photorealistic 3D visualizations that<br/>bring concepts to <em>life</em></h2>
+    <p class="sec-sub r d2" style="margin:auto">Enabling better design decisions and compelling product presentations.</p>
+  </div>
+  <div class="render-grid">
+    <div class="render-item tall r">
+      <div class="render-img">
+        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=800&fit=crop" alt="Corollo's Juice Drink" onerror="this.style.display='none'"/>
+      </div>
+      <div class="render-label"><h4>Corollo's Healthy Juice Drink</h4><span>Product Rendering &amp; Packaging Visualization</span></div>
+    </div>
+    <div class="render-item r d1">
+      <div class="render-img"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=380&fit=crop" alt="Timepiece Render" onerror="this.style.display='none'"/></div>
+      <div class="render-label"><h4>Timepiece Product Render</h4><span>3D Product Visualization</span></div>
+    </div>
+    <div class="render-item r d2">
+      <div class="render-img"><img src="https://images.unsplash.com/photo-1592890288564-76628a30a657?w=500&h=380&fit=crop" alt="Tech Render" onerror="this.style.display='none'"/></div>
+      <div class="render-label"><h4>Tech Product Visualization</h4><span>Digital Render</span></div>
+    </div>
+    <div class="render-item r">
+      <div class="render-img"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&h=380&fit=crop" alt="Interior Staging" onerror="this.style.display='none'"/></div>
+      <div class="render-label"><h4>Interior Product Staging</h4><span>Environment Visualization</span></div>
+    </div>
+    <div class="render-item r d1">
+      <div class="render-img"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=380&fit=crop" alt="Audio Render" onerror="this.style.display='none'"/></div>
+      <div class="render-label"><h4>Audio Product Render</h4><span>Lifestyle Visualization</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr class="rule"/>
+
+<!-- ═══ INTERVIEWS ════════════════════════════ -->
+<section id="interviews">
+<div class="wrap">
+  <div class="sec-head">
+    <div class="sec-eyebrow r">Interviews &amp; Features</div>
+    <h2 class="sec-title r d1">Sharing insights on design, sustainability,<br/>and the <em>future of product development</em></h2>
+    <p class="sec-sub r d2">Through various media appearances and publications.</p>
+  </div>
+  <div class="obra-feature r">
+    <div class="obra-header">
+      <h3>OBRA Design Masterclass</h3>
+      <span class="obra-tag">Featured Speaker</span>
+    </div>
+    <div class="obra-imgs">
+      <div class="obra-img"><img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400&h=300&fit=crop" alt="OBRA Presentation" onerror="this.style.background='var(--ivory-deep)'"/></div>
+      <div class="obra-img"><img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=400&h=300&fit=crop" alt="OBRA Group" onerror="this.style.background='var(--ivory-deep)'"/></div>
+      <div class="obra-img"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=300&fit=crop" alt="OBRA Event" onerror="this.style.background='var(--ivory-deep)'"/></div>
+      <div class="obra-img" style="background:var(--ivory-dark);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.75rem;padding:1.25rem">
+        <p style="font-size:.7rem;font-weight:600;color:var(--umber);text-align:center;letter-spacing:.08em;text-transform:uppercase">Pampanga &amp; Cebu</p>
+        <p style="font-size:.68rem;color:var(--ink-soft);text-align:center;line-height:1.55">Design Masterclass featuring Ronald Rommel Viloria alongside other industry design leaders</p>
+      </div>
+    </div>
+  </div>
+  <div class="media-grid">
+    <div class="media-card r">
+      <div class="media-img"><img src="https://images.unsplash.com/photo-1574958269340-fa927503f3dd?w=600&h=280&fit=crop" alt="Go Negosyo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="port-img-ph" style="display:none;height:190px">📺</div></div>
+      <div class="media-body"><div class="media-meta"><span class="media-source">Go Negosyo</span><span class="media-date">2024</span></div><div class="media-type">Video Feature</div><h4>3M on Wheels @ La Union</h4><p>Featured in Go Negosyo's 3M on Wheels program showcasing sustainable packaging and design innovation for local entrepreneurs.</p></div>
+    </div>
+    <div class="media-card r d1">
+      <div class="media-img"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=280&fit=crop" alt="Design Weekly" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="port-img-ph" style="display:none;height:190px">📰</div></div>
+      <div class="media-body"><div class="media-meta"><span class="media-source">Design Weekly</span><span class="media-date">March 2024</span></div><div class="media-type">Feature Interview</div><h4>The Future of Sustainable Product Design</h4><p>Discussing the intersection of sustainability and industrial design — and how Filipino designers are leading the circular economy shift.</p></div>
+    </div>
+    <div class="media-card r d2">
+      <div class="media-img"><img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=600&h=280&fit=crop" alt="Innovation Podcast" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="port-img-ph" style="display:none;height:190px">🎙️</div></div>
+      <div class="media-body"><div class="media-meta"><span class="media-source">Innovation Podcast</span><span class="media-date">January 2024</span></div><div class="media-type">Podcast</div><h4>From Concept to Market: A Designer's Journey</h4><p>An in-depth conversation about the design process and how empathy-driven design creates products that truly resonate with consumers.</p></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ SUSTAINABILITY (v1 animated) ═════════ -->
+<section id="sustainability" style="background:var(--ivory-dark);border-top:1px solid var(--line)">
+<div class="wrap">
+  <div class="sustain-grid">
+    <div class="sustain-visual r">
+      <div class="sustain-icon">🌿</div>
+      <div class="sustain-tagline">Design with intention. Packaging with purpose.</div>
+    </div>
+    <div class="sustain-text">
+      <div class="sec-eyebrow r" style="margin-bottom:1.1rem">Sustainability Advocacy</div>
+      <h2 class="r d1">Design as a<br/><em>responsibility</em></h2>
+      <p class="r d2">Mr. Viloria is a vocal champion of sustainable design and the circular economy. He challenges businesses to rethink their packaging from the ground up — moving away from the wasteful linear "take, make, dispose" model toward solutions that are reusable, meaningful, and brand-defining.</p>
+      <p class="r d3">"Your packaging reflects your values. If your plastic waste ends up in the ocean, your brand ends up there with it."</p>
+      <div class="sustain-pts">
+        <div class="sustain-pt r"><div class="sustain-dot"></div><p>Advocates for the <strong>circular economy</strong> — designing packaging that goes back, not into landfill.</p></div>
+        <div class="sustain-pt r d1"><div class="sustain-dot"></div><p>Demonstrates how <strong>sustainable packaging becomes a marketing asset</strong> — creating deeper customer engagement.</p></div>
+        <div class="sustain-pt r d2"><div class="sustain-dot"></div><p>Works with La Union clients on <strong>repurposed packaging experiences</strong> that build lasting brand loyalty.</p></div>
+        <div class="sustain-pt r d3"><div class="sustain-dot"></div><p>Supports community-based manufacturing in Payatas — proof that <strong>good design and social good coexist.</strong></p></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ PROCESS (v1 step cards) ═══════════════ -->
+<section id="process">
+<div class="wrap">
+  <div class="sec-head">
+    <div class="sec-eyebrow r">Design Process</div>
+    <h2 class="sec-title r d1">How <em>great design</em><br/>gets made</h2>
+  </div>
+  <div class="proc-grid">
+    <div class="proc-card r">
+      <div class="proc-num">01</div>
+      <h3>Discover &amp; Research</h3>
+      <p>Deep consumer research, market analysis, and community immersion. Understanding not just what people want, but what they truly need.</p>
+    </div>
+    <div class="proc-card r d1">
+      <div class="proc-num">02</div>
+      <h3>Ideate &amp; Sketch</h3>
+      <p>Rapid ideation across multiple directions. Sketching, concept modelling, and material exploration until the right idea surfaces.</p>
+    </div>
+    <div class="proc-card r d2">
+      <div class="proc-num">03</div>
+      <h3>Develop &amp; Prototype</h3>
+      <p>Refining the chosen concept through detailed design development, material specification, and physical or digital prototyping.</p>
+    </div>
+    <div class="proc-card r d3">
+      <div class="proc-num">04</div>
+      <h3>Deliver &amp; Sustain</h3>
+      <p>Production-ready design with full documentation, supplier coordination, and ongoing support to ensure the product reaches its audience as intended.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ RECOGNITION (v1) ══════════════════════ -->
+<section id="recognition" style="background:var(--ivory-dark)">
+<div class="wrap">
+  <div class="sec-head">
+    <div class="sec-eyebrow r">Recognition &amp; Affiliations</div>
+    <h2 class="sec-title r d1">Where <em>experience</em><br/>meets credibility</h2>
+  </div>
+  <div class="rec-grid">
+    <div class="rec-card r"><div class="rec-icon">📖</div><h3>The Material Matters Book</h3><p>Featured contributor in this landmark sourcebook on material manipulation for the homestyle industry — published collaboratively by the Design Center Philippines, Chamber of Furniture, and DTI.</p></div>
+    <div class="rec-card r d1"><div class="rec-icon">🏛️</div><h3>Design Center Philippines</h3><p>Active design consultant and collaborator for product development programs, contributing design thinking and product innovation to Philippine manufacturers and exporters.</p></div>
+    <div class="rec-card r d2"><div class="rec-icon">🤝</div><h3>DTI &amp; OTOP Next Gen</h3><p>Official design consultant for the One Town One Product (OTOP) Next Gen Program — empowering local communities through design and market access.</p></div>
+    <div class="rec-card r"><div class="rec-icon">🪑</div><h3>Chamber of Furniture</h3><p>Consultant and collaborator with the Chamber of Furniture in the Philippines, supporting industry growth through product design, innovation, and market development.</p></div>
+    <div class="rec-card r d1"><div class="rec-icon">🎤</div><h3>Speaker &amp; Advocate</h3><p>Featured speaker at AFFI's flagship event on sustainable packaging and the circular economy — championing responsible design practices among Filipino franchisers and entrepreneurs.</p></div>
+    <div class="rec-card r d2"><div class="rec-icon">🏭</div><h3>Industry Consultant · Asia</h3><p>Long-standing consultant for product and merchandising strategy across local government agencies and Asian markets — bridging Filipino craft with international retail demands.</p></div>
+  </div>
+  <div class="reach-wrap r">
+    <div class="reach-label"><span class="label-sm">International Presence</span><p>Products and presentations across international shows and markets</p></div>
+    <div class="reach-tags"><span class="reach-tag">France</span><span class="reach-tag">Italy</span><span class="reach-tag">Germany</span><span class="reach-tag">United States</span><span class="reach-tag">China</span><span class="reach-tag">Hong Kong</span><span class="reach-tag">Singapore</span><span class="reach-tag">Thailand</span><span class="reach-tag">Indonesia</span><span class="reach-tag">Vietnam</span><span class="reach-tag">Philippines</span></div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ CLIENTS ═══════════════════════════════ -->
+<section id="clients" style="padding:68px 0">
+<div class="wrap">
+  <div class="brands-label r"><span class="label-sm">Brands &amp; Clients Served</span></div>
+  <div class="brands-row r d1"><span class="brand-pill">Target Corporation</span><span class="brand-pill">Pottery Barn</span><span class="brand-pill">Crate &amp; Barrel</span><span class="brand-pill">West Elm</span><span class="brand-pill">Design Center Philippines</span><span class="brand-pill">DTI / OTOP</span><span class="brand-pill">AFFI</span><span class="brand-pill">D'sign 2911</span><span class="brand-pill">Momilo Mio</span><span class="brand-pill">TGH Plus</span><span class="brand-pill">Chamber of Furniture PH</span><span class="brand-pill">Go Negosyo</span></div>
+</div>
+</section>
+
+<!-- ═══ TESTIMONIALS ══════════════════════════ -->
+<section id="testimonials">
+<div class="wrap">
+  <div class="sec-head center testi-head">
+    <div class="sec-eyebrow r">Client Testimonials</div>
+    <h2 class="sec-title r d1">What clients say about<br/>working with <em>Ronald</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card r">
+      <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <div class="testi-qmark">"</div>
+      <p>"Ronald's design expertise transformed our product vision into reality. His attention to detail and innovative approach exceeded all expectations. The packaging became one of our strongest brand assets."</p>
+      <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sarah Chen</div><div class="testi-role">Product Manager, TechFlow</div></div></div>
+    </div>
+    <div class="testi-card r d1">
+      <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <div class="testi-qmark">"</div>
+      <p>"The packaging design Ronald created for our sustainable product line perfectly captured our brand values while driving significant sales growth. His understanding of the market is unparalleled."</p>
+      <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Marcus Rodriguez</div><div class="testi-role">CEO, GreenStart</div></div></div>
+    </div>
+    <div class="testi-card r d2">
+      <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <div class="testi-qmark">"</div>
+      <p>"Working with Ronald was a game-changer. His 3D renderings helped us secure funding and brought our furniture concepts to life beautifully. His consumer-first thinking is evident in every deliverable."</p>
+      <div class="testi-author"><div class="testi-avatar">E</div><div><div class="testi-name">Emily Watson</div><div class="testi-role">Design Director, ModernSpace</div></div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<hr class="rule" style="border-color:rgba(255,255,255,.06)"/>
+
+<!-- ═══ CONTACT ════════════════════════════════ -->
+<section id="contact" style="background:var(--white)">
+<div class="wrap">
+  <div class="sec-head center">
+    <div class="sec-eyebrow r" style="justify-content:center">Get in Touch</div>
+    <h2 class="sec-title r d1">Ready to bring your product<br/>ideas to <em>life?</em></h2>
+    <p class="sec-sub r d2" style="margin:auto;text-align:center">Let's discuss how we can work together to create innovative design solutions.</p>
+  </div>
+  <div class="contact-grid">
+    <div>
+      <h2 class="ci-title r">Contact <em>Information</em></h2>
+      <p class="ci-sub r d1">Available for product design commissions, design consultancy, brand direction, speaking engagements, and collaborative projects across the Philippines and internationally.</p>
+      <div class="contact-details r d2">
+        <div class="cd"><div class="cd-icon"><i class="fas fa-envelope"></i></div><div><div class="cd-lbl">Email</div><div class="cd-val"><a href="mailto:viloriaronaldrommel@gmail.com">viloriaronaldrommel@gmail.com</a></div></div></div>
+        <div class="cd"><div class="cd-icon"><i class="fas fa-phone"></i></div><div><div class="cd-lbl">Phone</div><div class="cd-val"><a href="tel:+6399294145">+63 99 294 1145</a></div></div></div>
+        <div class="cd"><div class="cd-icon"><i class="fas fa-map-marker-alt"></i></div><div><div class="cd-lbl">Location</div><div class="cd-val">Antipolo City, Rizal Province, Philippines</div></div></div>
+        <div class="cd"><div class="cd-icon"><i class="fab fa-linkedin"></i></div><div><div class="cd-lbl">LinkedIn</div><div class="cd-val"><a href="https://www.linkedin.com/in/ronald-rommel-viloria" target="_blank">Ronald Rommel Viloria</a></div></div></div>
+      </div>
+      <div class="social-row r d3">
+        <a href="#" class="soc-btn" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/ronald-rommel-viloria" target="_blank" class="soc-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="soc-btn" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://viloriadesign.wixsite.com/viloriaproductdesign" target="_blank" class="soc-btn" title="Portfolio"><i class="fas fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="contact-form-box r d2">
+      <h3>Send a Message</h3>
+      <form onsubmit="sf(event)">
+        <div class="ff-row">
+          <div class="ff"><label>First Name</label><input type="text" placeholder="John" required/></div>
+          <div class="ff"><label>Last Name</label><input type="text" placeholder="Doe" required/></div>
+        </div>
+        <div class="ff"><label>Email Address</label><input type="email" placeholder="john@example.com" required/></div>
+        <div class="ff"><label>Company (Optional)</label><input type="text" placeholder="Your company or brand"/></div>
+        <div class="ff"><label>Type of Enquiry</label>
+          <select required>
+            <option value="" disabled selected>Select...</option>
+            <option>Product Design Commission</option>
+            <option>Packaging Design</option>
+            <option>Design Consultancy</option>
+            <option>Brand &amp; Innovation Consulting</option>
+            <option>Speaking Engagement</option>
+            <option>3D Rendering / Visualization</option>
+            <option>Collaboration / Partnership</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="ff"><label>Message</label><textarea placeholder="Tell me about your project, brief, or idea..."></textarea></div>
+        <button type="submit" class="form-btn">Send Message &nbsp;→</button>
+      </form>
+      <div class="form-success" id="fs">Thank you — I'll be in touch shortly.</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════ -->
+<footer>
+<div class="footer-inner">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="fb-name">Ronald Rommel N. Viloria</div>
+      <div class="fb-role">Industrial Designer &amp; Entrepreneur</div>
+      <p>Designing with intention and purpose — innovating through empathy and collaboration. Serving the global market from Antipolo, Philippines.</p>
+      <div class="fb-social">
+        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/ronald-rommel-viloria" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://viloriadesign.wixsite.com/viloriaproductdesign" target="_blank" title="Portfolio"><i class="fas fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Portfolio</h5>
+      <ul>
+        <li><a href="#portfolio">Product Design</a></li>
+        <li><a href="#packaging">Packaging Design</a></li>
+        <li><a href="#rendering">Product Rendering</a></li>
+        <li><a href="#interviews">Interviews &amp; Features</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="#about">About Ronald</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#sustainability">Sustainability</a></li>
+        <li><a href="#recognition">Recognition</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:viloriaronaldrommel@gmail.com">viloriaronaldrommel@gmail.com</a></li>
+        <li><a href="tel:+6399294145">+63 99 294 1145</a></li>
+        <li><a href="#contact">Send a Message</a></li>
+        <li><a href="#" onclick="alert('CV available on request.');return false">Download CV</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Ronald Rommel N. Viloria · VPDE Studio · All rights reserved.</p>
+    <div class="footer-built">Portfolio built by <span>Mendtrix IT Services</span></div>
+  </div>
+</div>
+</footer>
+
+<script>
+// Custom cursor (v1)
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function tick(){cur.style.left=mx-5+'px';cur.style.top=my-5+'px';rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx-18+'px';curR.style.top=ry-18+'px';requestAnimationFrame(tick)})();
+window.addEventListener('touchstart',()=>{cur.style.display='none';curR.style.display='none'},{once:true});
+
+// Mobile nav
+const hb=document.getElementById('hamBtn'),mn=document.getElementById('mobNav');
+hb.addEventListener('click',()=>{
+  mn.classList.toggle('open');
+  const s=hb.querySelectorAll('span');
+  if(mn.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(4px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(4px,-5px)'}
+  else{s.forEach(x=>{x.style.transform='';x.style.opacity=''})}
+});
+function cm(){mn.classList.remove('open');hb.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity=''})}
+
+// Scroll reveal
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.08});
+document.querySelectorAll('.r').forEach(el=>ro.observe(el));
+
+// Active nav
+window.addEventListener('scroll',()=>{
+  let c='';
+  document.querySelectorAll('section[id],div[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-82)c=s.id});
+  document.querySelectorAll('.nav-links a').forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'var(--ink)':''});
+},{passive:true});
+
+// Form submit
+function sf(e){
+  e.preventDefault();
+  const b=e.target.querySelector('.form-btn');
+  b.textContent='Sending...';b.style.opacity='.6';
+  setTimeout(()=>{
+    document.getElementById('fs').style.display='block';
+    b.textContent='Sent ✓';e.target.reset();
+    setTimeout(()=>{b.textContent='Send Message →';b.style.opacity='';document.getElementById('fs').style.display='none'},5000);
+  },1400);
+}
+</script>
+</body>
+</html>
